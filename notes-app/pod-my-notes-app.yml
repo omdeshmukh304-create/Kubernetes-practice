@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: note-app
+  namespace: notes-app
+  labels:
+    app: note-app-label
+
+spec:
+  containers:
+    - name: note-app
+      image: omdeshmukh86/my-app:3d6f48d7139b5af206e036753a20b3f4bf75880f
+      ports:
+        - containerPort: 5000

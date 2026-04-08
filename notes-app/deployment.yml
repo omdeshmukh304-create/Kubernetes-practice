@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: note-app-deployment
+  namespace: notes-app
+  labels:
+    app: note-app-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: note-app-label
+  template:
+    metadata:
+      name: note-app
+      labels:
+        app: note-app-label
+    spec:
+      containers:
+        - name: note-app
+          image: omdeshmukh86/my-app:3d6f48d7139b5af206e036753a20b3f4bf75880f
+          ports:
+            - containerPort: 80
